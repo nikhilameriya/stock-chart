@@ -59,7 +59,7 @@ module.exports = (env, argv) => {
         devServer: {
             contentBase: path.join(__dirname, 'dist'),
             compress: true,
-            // port: 9000
+            port: process.env.PORT || 9000
         },
         module: {
             noParse: /node_modules\/dist/,
