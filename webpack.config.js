@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 
 module.exports = (env, argv) => {
@@ -35,7 +35,7 @@ module.exports = (env, argv) => {
             removeEmptyChunks: true,
             mergeDuplicateChunks: true,
             minimizer: [
-                new UglifyJsPlugin({
+                new TerserPlugin({
                     cache: true,
                     parallel: true,
                     sourceMap: true
